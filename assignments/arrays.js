@@ -63,34 +63,91 @@ let inventory = [{"id":1,"car_make":"Lincoln","car_model":"Navigator","car_year"
 
 // ==== Challenge 1 ====
 // The dealer can't recall the information for a car with an id of 33 on his lot. Help the dealer find out which car has an id of 33 by logging the car's year, make, and model in the console log provided to you below:
-console.log(`Car 33 is a *car year goes here* *car make goes here* *car model goes here*` );
+function findCar (number, arr){
+    let string = "";
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i].id == number) {
+            string = `Car ${arr[i].id} is a ${arr[i].car_year} ${arr[i].car_make} ${arr[i].car_model}`;
+        }
+    }
+   return string;
+}
+// console.log(`Car 33 is a *car year goes here* *car make goes here* *car model goes here*` );
+console.log(findCar(33, inventory));
 
 
 
-// ==== Challenge 2 ====
+
+//===================================Challenge 2 ===================================================================================================================
+//==================================================================================================================================================================
+//==================================================================================================================================================================
+
+
 // The dealer needs the information on the last car in their inventory.  What is the make and model of the last car in the inventory?  Log the make and model into the console.
-let lastCar = 0;
-console.log();
+// function findLast(arr){
+// let lastCar = "";
+// for (let i = arr.length-1; i > 0; i--){
+//     if(i == arr.length-1) {
+//        lastCar = arr[i].car_make + " " + arr[i].car_model;
+//         }
+//     }
+//     return lastCar;
+// }
+// console.log(findLast(inventory));
+
+lastCar = inventory[49];
+console.log(lastCar.car_make + ' ' + lastCar.car_model);
 
 // ==== Challenge 3 ====
 // The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
+function sortCars(arr){
 let carModels = [];
-console.log();
+for(let i = 0; i < arr.length; i++){
+carModels.push(arr[i].car_model);  
+carModels.sort();  
+    }
+    return carModels;
+}
+
+console.log(sortCars(inventory));
 
 // ==== Challenge 4 ====
 // The accounting team needs all the years from every car on the lot. Create a new array from the dealer data containing only the car years and log the result in the console.
-let carYears = [];
-console.log();
+function sortYears(arr){
+    let carYears = [];
+    for(let i = 0; i < arr.length; i++){
+    carYears.push(arr[i].car_year);  
+    carYears.sort();  
+        }
+        return carYears;
+    }
+
+    console.log(sortYears(inventory));
 
 // ==== Challenge 5 ====
 // The car lot manager needs to find out how many cars are older than the year 2000. Using the carYears array you just created, find out how many cars were made before the year 2000 by populating the array oldCars and logging it's length.
-let oldCars =[];
-console.log(); 
+function findOldies(arr){
+    let oldCars = [];
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i].car_year < 2000)
+            oldCars.push(arr[i].car_year);    
+        }
+        return oldCars.length;
+    }
+    
+    console.log(findOldies(inventory));
+
 
 // ==== Challenge 6 ====
 // A buyer is interested in seeing only BMW and Audi cars within the inventory.  Return an array that only contains BMW and Audi cars.  Once you have populated the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
-let BMWAndAudi =[];
-console.log();
-
-
-
+function findBmwAudi(arr){
+    let BMWAndAudi =[];
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i].car_make == "BMW" || arr[i].car_make == "Audi" ){
+            BMWAndAudi.push(arr[i].car_model);
+            }  
+        }
+        return JSON.stringify(BMWAndAudi);
+    }
+    
+    console.log(findBmwAudi(inventory))
