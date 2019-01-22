@@ -2,6 +2,11 @@
 
 // let myFunction = function () {};
 
+myFunction = () => {
+    return "I want Monies";
+}
+
+console.log(myFunction());
 // let anotherFunction = function (param) {
 //   return param;
 // };
